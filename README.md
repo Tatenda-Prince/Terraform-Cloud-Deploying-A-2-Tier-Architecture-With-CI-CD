@@ -401,9 +401,43 @@ Apply Finished! The application process is now complete! Terraform Cloud has eff
 
 Scroll down and take note of the Outputs value of the DNS of the created Application Load Balancer. Copy and save the ALB’s DNS, as it will be required to access the web page from the browser.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/c151246178c408226c801807a13eade4a59ecb97/images/Screenshot%202025-01-04%20193824.png)
 
 Now, let’s verify that our resources have been created by reviewing them in the Management Console.
+
+# Step 5: Verify AWS resources were created in Management Counsel
+
+In the AWS Management Console, head to the EC2 dashboard and verify that the desired two EC2 web servers were launched from the ASG.
+
+Great! Looks like we are in business here!
+
+![image_alt]()
+
+Next, navigate to the left pane, scroll down and select Target groups. Select the newly created Target group, scroll down, then verify that the instances Health status is healthy, as shown below.
+
+Awesome! Our ASG EC2 instances are all healthy.
+
+![image alt]()
+
+Lastly, head to the RDS service dashboard and verify that the database has been launched.
+
+Yes! There is our MySQL Database instance, up and running!
+
+![image_alt]()
+
+Great! We’ve successfully confirmed that our ASG has generated the expected EC2 instances and all of our Target groups’ health statuses are displaying as healthy.
+
+Let’s now verify that we can access our ASG’s web servers through our ALB.
+
+# Step 10: Verify reachability to the Web server using its URL in browser
+
+Open up your desired browser and paste the ALB’s DNS in your browser.
+
+Note — Make sure to use the “http://” protocol and not https:// to reach the ALB.
+
+![image_alt]()
+
+
 
 
 
