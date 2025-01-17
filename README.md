@@ -94,7 +94,45 @@ To achieve this, your manager has tasked you to deploy a two-tier architecture o
 
 Below is the file structure of our Two-Tier Architecture utilizing Terraform modules to ensure repeatability and consistency in your infrastructure deployment.
 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/823f4eef72150477825990410aa7152d703cdc97/images/Screenshot%202025-01-17%20133401.png)
+
+## Explaining the Terraform Module file structure
+
+The configuration includes a parent module directory with configuration files, along with subdirectories for each child module that include database, ec2_auto_scaling, load_balancer and network_flow. Each module consists of Terraform configuration files that define the specific resources, variables and output values for that module.
+
+We have divided our resources into distinct modules such as VPC, route tables, gateways and security groups in one module, the application load balancer in another, the EC2 Auto Scaling Group in a separate module and the RDS instance in another module. This approach will enable us to efficiently replicate similar infrastructure in the future.
+
+## How we created Custom Modules
+
+For each child module, we define its resources in a separate directory within the parent module directory. In each child module we specify the input variables and outputs in the variable.tf and outputs.tf config files. Afterwards, we reference the child modules in the parent module’s main.tf configuration file and pass in the required argument values in the module block.
+
+The root directory or parent module of the configuration includes essential files such as main.tf, providers.tf, variables.tf and outputs.tf. These files will define the module resources, providers, variables and output values respectively.
+
+## Part 1
+
+## Step 0: Install latest Terraform version in your local machine and log in to Terraform cloud from CLI
+
+## Terraform Cloud Account
+
+If you don’t have an account, sign up for Terraform Cloud here -> https://app.terraform.io/public/signup/account
+
+As we proceed into this article, for a better understanding and to effectively follow this demonstration, kindly fork the project’s repository from my GitHub to yours by clicking on the link below. You are welcome to make any necessary edits to the files from your local visual code studio  CLI, as we progress.
+
+https://github.com/Tatenda-Prince/Terraform-2-Tier-Architecture
+
+## Step 1: Review network configurations child module
+
+In this first step, we are going to review the network_flow module that will include all the networking configurations for our infrastructure. Specifically, we separate the major AWS services and resources to be created into different configurations files, as seen below.
+
 ![image_alt]()
 
 
+The vpc.tf file creates a custom VPC that defines our network topology and isolates two public subnets for the web server tier and two private subnets for the RDS tier, each with their own CIDR blocks.
 
+We also create a NAT Gateway in the public subnet for secure access to resources in the private subnet and an Internet Gateway for outbound internet traffic in the gateway.tf config file.
+
+In the route-table.tf config file, we configure public and private route table and associate each subnet with the appropriate route table to determine how traffic is routed in our VPC.
+
+The security-groups.tf config file creates and configures appropriate Security Groups which act as virtual firewalls that control inbound and outbound traffic too and from the resources. Here we have configured a Security Group for our Application Load Balancer, the Auto Scaling Group of web servers and another for our RDS instance, which allows incoming traffic from the appropriate sources.
+
+The file variable.tf declares the variables that will be utilized throughout the configuration. Similarly, the outputs.tf file defines the output values that will be referenced from the parent module and can be passed into other child modules.
