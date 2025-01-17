@@ -423,7 +423,7 @@ Lastly, head to the RDS service dashboard and verify that the database has been 
 
 Yes! There is our MySQL Database instance, up and running!
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/d369c9a324405d4740893d7d4d3786d4e2a274a3/images/Screenshot%202025-01-04%20194048.png)
 
 Great! We’ve successfully confirmed that our ASG has generated the expected EC2 instances and all of our Target groups’ health statuses are displaying as healthy.
 
