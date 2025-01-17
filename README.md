@@ -363,7 +363,7 @@ Note — Make sure to select Environment variables for the variable category whe
 
 AWS_ACCESS_KEY_ID example —
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/afd6065d3fdace35ac7465f2d54a860447b3a971/images/Screenshot%202025-01-17%20142501.png)
 
 Additionally, add the Terraform variables db_username and db_password which would be used to set the Database’s username and password. Remember to set their values to sensitive.
 
