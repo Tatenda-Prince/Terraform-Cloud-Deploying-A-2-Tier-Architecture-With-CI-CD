@@ -411,7 +411,7 @@ In the AWS Management Console, head to the EC2 dashboard and verify that the des
 
 Great! Looks like we are in business here!
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/3e863558ab3b03cef9815b3ae7458dec0bb27920/images/Screenshot%202025-01-04%20193904.png)
 
 Next, navigate to the left pane, scroll down and select Target groups. Select the newly created Target group, scroll down, then verify that the instances Health status is healthy, as shown below.
 
