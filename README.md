@@ -335,7 +335,7 @@ For the Connect to VCS step, select GitHub or any other preferred version contro
 
 Select your GitHub repository, then click Install to authorize Terraform Cloud.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/57e533648be51aed4da57caf0407212ebe24639e/images/Screenshot%202025-01-04%20130426.png)
 
 Let’s continue by selecting your GitHub Repo, then continuing to Configure settings.
 
