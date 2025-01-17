@@ -154,7 +154,195 @@ This module launches an EC2 Auto Scaling Group in the public subnets and install
 
 In the module database, we launch an RDS MySQL instance in the private subnets. This instance will be accessible only from within the VPC and incoming traffic will only be allowed from the web servers security group.
 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/f3f34b18ca77a7efd90c4092750d71fab968417d/images/Screenshot%202025-01-17%20134919.png)
+
+In the main.tf config file, we define our RDS instance by specifying the DB engine, instance class and other properties. Here is also where we associate the instance with the appropriate subnet and Security Group.
+
+## Step 5: In depth review of Parent Module
+
+Let’s take an in-depth look at the config files in the parent module that work together to create a two-tier architecture on AWS using module blocks tha take advanatge of the child modules.
+
+## main.tf config file
+
+In this file, each module has a different function — The network_flow module sets up the VPC, the ec2_auto_scaling module sets up the an EC2 Auto Scaling Group of instances with Apache installed, the load_balancer module sets up the Application Load Balancer and the database module sets up the RDS instance. The argument fields for the child module blocks are defined in their respective variable.tf config files.
+
+```python
+#Instance Module
+module "auto_scaling_group" {
+  source               = "./modules/ec2_auto_scaling"
+  pub_sub1_id          = module.network_flow.pub_sub1_id
+  pub_sub2_id          = module.network_flow.pub_sub2_id
+  lt_asg_ami           = "ami-0aa117785d1c1bfe5"
+  lt_asg_instance_type = "t2.micro"
+  lt_asg_key           = "demoKeypair"
+  script_name          = "install-apache.sh"
+  asg_sg_id            = module.network_flow.asg_sg_id
+  alb_tg_arn           = module.load_balancer.alb_tg_arn
+}
+
+#Load Balancer Module
+module "load_balancer" {
+  source                = "./modules/load_balancer"
+  pub_sub1_id           = module.network_flow.pub_sub1_id
+  pub_sub2_id           = module.network_flow.pub_sub2_id
+  alb_sg_id             = module.network_flow.alb_sg_id
+  tg_port               = 80
+  tg_protocol           = "HTTP"
+  vpc_id                = module.network_flow.vpc_id
+  alb_hc_interval       = 60
+  alb_hc_path           = "/"
+  alb_hc_port           = 80
+  alb_hc_timeout        = 45
+  alb_hc_protocol       = "HTTP"
+  alb_hc_matcher        = "200,202"
+  alb_listener_port     = "80"
+  alb_listener_protocol = "HTTP"
+}
+
+#VPC Module
+module "network_flow" {
+  source         = "./modules/network_flow"
+  vpc_cidr       = var.pm_vpc_cidr
+  pub_sub1_cidr  = "10.0.1.0/24"
+  pub_sub2_cidr  = "10.0.2.0/24"
+  priv_sub1_cidr = "10.0.3.0/24"
+  priv_sub2_cidr = "10.0.4.0/24"
+  map_public_ip  = true
+  az_1           = "us-east-1a"
+  az_2           = "us-east-1b"
+  pub_rt_cidr    = "0.0.0.0/0"
+  priv_rt_cidr   = "0.0.0.0/0"
+}
+
+
+#Data Module
+module "database" {
+  source                      = "./modules/database"
+  priv_sub1_id                 = module.network_flow.priv_sub1_id
+  priv_sub2_id                 = module.network_flow.priv_sub2_id
+  allocated_storage           = 5
+  storage_type                = "gp2"
+  engine                      = "mysql"
+  engine_version              = "5.7"
+  instance_class              = "db.t2.micro"
+  vpc_security_group_ids      = module.network_flow.db_sg_id
+  parameter_group_name        = "default.mysql5.7"
+  username                    = "two_tier_db"
+  db_name                     = var.db_username
+  password                    = var.db_password
+  allow_major_version_upgrade = true
+  auto_minor_version_upgrade  = true
+  backup_retention_period     = 35
+  backup_window               = "22:00-23:00"
+  maintenance_window          = "Sat:00:00-Sat:03:00"
+  multi_az                    = "false"
+  skip_final_snapshot         = true
+}
+```
+
+## Code Explanation
+
+## network_flow module
+
+This module sets up the Virtual Private Cloud (VPC) and its associated resources, including two public subnets, two private subnets, internet and NAT gateways and route tables for each subnet. It also creates security groups for the various components, including one for the EC2 instances and one for the RDS instance.
+
+## auto_scaling_group module
+
+This module creates an EC2 Auto Scaling Group in the public subnets of the VPC created by the network_flow module. It installs an Apache web server using a Bash script specified in the script_name variable. The Auto Scaling Group launches instances with the specified Amazon Machine Image (AMI), instance type, key and security group.
+
+## load_balancer module
+
+This module creates an Application Load Balancer in the public subnets of the VPC created by the network_flow module. It sets up a Target group for the EC2 instances created by the auto_scaling_group module and creates a listener on port 80 to route incoming traffic to the Target group.
+
+## database module
+
+This module creates an Amazon RDS instance in the private subnets of the VPC created by the network_flow module. It specifies the database engine (MySQL), instance class, allocated storage, username, password, backup and maintenance windows and other settings.
+
+## variables.tf config file
+
+In this config file we declare variable blocks that define variables used in the configuration.
+
+```python
+#####################################
+#VPC Variables - Parent Module 
+####################################
+
+variable "pm_vpc_cidr" {
+  default = "10.0.0.0/16"
+  type    = string
+}
+
+variable "db_username" {}
+variable "db_password" {}
+```
+
+## Code Explanation
+
+The first variable pm_vpc_cidr sets the default value for the VPC CIDR block as 10.0.0.0/16. This variable is of type string and if no value is provided for this variable during runtime, it will use the default value.
+
+The db_username and db_password is also declared, however we will set these values when we integrate Terraform Cloud as we can configure them to be secret values.
+
+
+## output.tf config file
+
+The output block in Terraform is used to define values that can be queried or used by other parts of the configuration.
+
+```python
+output "alb-dns" {
+  value = module.load_balancer.alb_dns
+}
+```
+
+## Code Explanation
+
+In this specific case, we define an output called alb-dns and set its value to the DNS name of the Application Load Balancer (ALB) created by the load_balancer module. After successfully applying the Terraform configuration, this value will be outputted and we can use it to access the ALB, which serves content from the web servers, from our browser, .
+
+## Part 2
+
+## Deploy the Infrastructure using Terraform Cloud
+
+We have chosen Terraform Cloud as our CI/CD tool to simplify our infrastructure deployment process. With its centralized location for managing and sharing infrastructure code and built-in support for continuous integration and delivery, we can deploy changes to production more efficiently.
+
+Terraform Cloud integrates with popular source control tools like GitHub, making it easy for our teams to trigger infrastructure changes automatically when code changes are made. Additionally, its features for ensuring the reliability and security of our infrastructure give us peace of mind that our systems are always up-to-date and secure. By leveraging Terraform Cloud, we can streamline our infrastructure code management, deploy changes more quickly and maintain control over our infrastructure
+
+## Step 1: Sign into Terraform Cloud Account and create a workspace
+
+## Sign in to Terraform Cloud
+
+Head to the Terraform Cloud sign in page to sign into your account. Input your sign in credentials, then click Sign in.
+
 ![image_alt]()
+
+
+## Create an new organization
+
+Next, we will create and name a new organization. Add your valid email address, then click Create organization.
+
+
+![image_alt]()
+
+## Create a workspace
+
+In the Projects and workspaces tab select Create a workspace, then slelect Version control workflow.
+
+![image_alt]()
+
+## Configure VCS settings to integrate with GitHub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
