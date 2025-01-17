@@ -379,7 +379,7 @@ Let’s get to action! On the right hand side, click Actions, then Start new run
 
 In the next prompt, type your Reason for starting run, then click Start run.
 
-![image_alt]() 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/ef0e8e82fe9c4280d5647ab6393cade929c999c1/images/Screenshot%202025-01-04%20140607.png) 
 
 
 
