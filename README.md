@@ -329,7 +329,21 @@ In the Projects and workspaces tab select Create a workspace, then slelect Versi
 
 ## Configure VCS settings to integrate with GitHub
 
+For the Connect to VCS step, select GitHub or any other preferred version control provider. For this demonstration we will use GitHub.
+
 ![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/e98fb53b38c90a246daacc7dfba469588bc2e40a/images/Screenshot%202025-01-04%20125837.png) 
+
+Select your GitHub repository, then click Install to authorize Terraform Cloud.
+
+![image_alt]()
+
+Let’s continue by selecting your GitHub Repo, then continuing to Configure settings.
+
+Give your workspace a name, scroll down, select Advanced options, then make sure Manual apply and Apply trigger runs are selected.
+
+![image_alt]()
+
+
 
 
 
