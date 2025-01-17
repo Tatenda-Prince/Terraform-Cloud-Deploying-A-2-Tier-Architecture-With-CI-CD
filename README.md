@@ -437,6 +437,25 @@ Note — Make sure to use the “http://” protocol and not https:// to reach t
 
 ![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/7fb2eef187dccc0f61c6aac0f3fcfead95124972/images/Screenshot%202025-01-04%20194149.png)
 
+## Congratulations
+
+
+You’ve successfully completed “The Terraform Cloud!”
+
+Creating a highly available two-tier AWS architecture can be complex, but with Terraform, it becomes much more manageable. By following the steps outlined in this article, we’ve easily created a custom VPC, launch EC2 instances, set up an RDS MySQL instance and deploy your infrastructure using Terraform Cloud.
+
+## Bonus
+
+## Commit changes to code in GitHub and trigger run in Terraform Cloud.
+
+If you wish to take things a step further, you can modify the local repository, save the changes and then push them to the GitHub repository. As a result, a run will be initiated automatically within Terraform Cloud, since it will retrieve the code from GitHub and proceed to deploy the infrastructure to AWS.
+
+## Clean up
+
+## Destroy infrastructure
+
+![image_alt]()
+
 
 
 
