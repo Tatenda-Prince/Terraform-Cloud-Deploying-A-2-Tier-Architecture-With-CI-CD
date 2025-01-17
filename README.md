@@ -365,6 +365,14 @@ AWS_ACCESS_KEY_ID example —
 
 ![image_alt]()
 
+Additionally, add the Terraform variables db_username and db_password which would be used to set the Database’s username and password. Remember to set their values to sensitive.
+
+Once completed, you will have defined five variables in Terraform Cloud, as seen below.
+
+![image_alt]()
+
+
+
 
 
 
