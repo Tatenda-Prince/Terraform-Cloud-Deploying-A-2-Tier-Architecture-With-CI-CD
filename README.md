@@ -397,7 +397,7 @@ Terraform Cloud should now start to run the Apply.
 
 Apply Finished! The application process is now complete! Terraform Cloud has effectively deployed our two-tier architecture in the AWS environment. You should now be able to access and inspect all of the newly created resources.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/68faeb66e601ec57272a3ffaecf514fea0a22e9c/images/Screenshot%202025-01-04%20193756.png)
 
 Scroll down and take note of the Outputs value of the DNS of the created Application Load Balancer. Copy and save the ALB’s DNS, as it will be required to access the web page from the browser.
 
