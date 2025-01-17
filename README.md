@@ -346,7 +346,29 @@ Give your workspace a name, scroll down, select Advanced options, then make sure
 
 Next, scroll down, then clicking Create workspaces.
 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/a15b8c1595b33eb49016ed7811fbd1b9f6af6d4d/images/Screenshot%202025-01-17%20141704.png)
+
+
+## Step 3: Set up our environment variables
+
+To be able to have access to our AWS environment and ensure the security of our AWS access credentials (access/secret key), we will configure the following variables as sensitive — AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_DEFAULT_REGION.
+
+Click on Go to workspace overview.
+
 ![image_alt]()
+
+Select the Variables tab on the left panel, scroll down then click Add variable, as seen in the example below of using AWS access keys—
+
+Note — Make sure to select Environment variables for the variable category when setting the AWS access keys.
+
+AWS_ACCESS_KEY_ID example —
+
+![image_alt]()
+
+
+
+
+
 
 
 
