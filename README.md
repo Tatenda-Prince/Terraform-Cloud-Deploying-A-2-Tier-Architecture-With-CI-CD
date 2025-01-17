@@ -124,7 +124,7 @@ https://github.com/Tatenda-Prince/Terraform-2-Tier-Architecture
 
 In this first step, we are going to review the network_flow module that will include all the networking configurations for our infrastructure. Specifically, we separate the major AWS services and resources to be created into different configurations files, as seen below.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/827e3a247e8f5815bfe760846bee8a445eda89a4/images/Screenshot%202025-01-17%20134407.png)
 
 
 The vpc.tf file creates a custom VPC that defines our network topology and isolates two public subnets for the web server tier and two private subnets for the RDS tier, each with their own CIDR blocks.
@@ -136,3 +136,26 @@ In the route-table.tf config file, we configure public and private route table a
 The security-groups.tf config file creates and configures appropriate Security Groups which act as virtual firewalls that control inbound and outbound traffic too and from the resources. Here we have configured a Security Group for our Application Load Balancer, the Auto Scaling Group of web servers and another for our RDS instance, which allows incoming traffic from the appropriate sources.
 
 The file variable.tf declares the variables that will be utilized throughout the configuration. Similarly, the outputs.tf file defines the output values that will be referenced from the parent module and can be passed into other child modules.
+
+## Step 2: Review Application Load Balancer child module
+
+To make our infrastructure more fault-tolerant and scalable, we create an Application Load Balancer (ALB) with the relevant resources in the main.tf which will target our web servers.
+
+![image_alt]()
+
+
+## Step 3: Review EC2 Auto Scaling Group child module
+
+This module launches an EC2 Auto Scaling Group in the public subnets and installs an Apache web server using the EC2 user data from a bash script located in the parent module. The instances launched through this module will be publicly accessible and will serve as the platform to host our web content.
+
+![image_alt]()
+
+## Step 4: Review Database child module
+
+In the module database, we launch an RDS MySQL instance in the private subnets. This instance will be accessible only from within the VPC and incoming traffic will only be allowed from the web servers security group.
+
+![image_alt]()
+
+
+
+
