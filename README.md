@@ -141,7 +141,7 @@ The file variable.tf declares the variables that will be utilized throughout the
 
 To make our infrastructure more fault-tolerant and scalable, we create an Application Load Balancer (ALB) with the relevant resources in the main.tf which will target our web servers.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/c875afd2ab3336f1e5dee0fe38fec5c46a07ed0d/images/Screenshot%202025-01-17%20134850.png)
 
 
 ## Step 3: Review EC2 Auto Scaling Group child module
