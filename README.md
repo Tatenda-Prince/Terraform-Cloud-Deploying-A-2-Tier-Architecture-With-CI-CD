@@ -417,7 +417,7 @@ Next, navigate to the left pane, scroll down and select Target groups. Select th
 
 Awesome! Our ASG EC2 instances are all healthy.
 
-![image alt]()
+![image alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/75c2c82e3830bbea335ab4b47f90ced96f528717/images/Screenshot%202025-01-04%20193959.png)
 
 Lastly, head to the RDS service dashboard and verify that the database has been launched.
 
