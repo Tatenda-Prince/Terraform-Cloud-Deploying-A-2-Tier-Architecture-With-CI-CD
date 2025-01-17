@@ -387,7 +387,7 @@ Upon successful completion of the plan, you will see a green bar accompanied by 
 
 Continue by scrolling down and clicking Confirm and Apply. Add a comment, then click Confirm Plan to deploy our AWS infrastructure.
 
-![image_alt]() 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/ced32374211119afb528b78a043b45b8e94cbe79/images/Screenshot%202025-01-04%20140628.png) 
 
 
 Terraform Cloud should now start to run the Apply.
