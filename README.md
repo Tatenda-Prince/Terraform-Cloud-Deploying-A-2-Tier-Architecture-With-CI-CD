@@ -341,7 +341,14 @@ Let’s continue by selecting your GitHub Repo, then continuing to Configure set
 
 Give your workspace a name, scroll down, select Advanced options, then make sure Manual apply and Apply trigger runs are selected.
 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/1a1373b8041f63480894a7629c3efe81c6c991a5/images/Screenshot%202025-01-04%20130958.png)
+
+
+Next, scroll down, then clicking Create workspaces.
+
 ![image_alt]()
+
+
 
 
 
