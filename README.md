@@ -148,7 +148,7 @@ To make our infrastructure more fault-tolerant and scalable, we create an Applic
 
 This module launches an EC2 Auto Scaling Group in the public subnets and installs an Apache web server using the EC2 user data from a bash script located in the parent module. The instances launched through this module will be publicly accessible and will serve as the platform to host our web content.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/8efd91185ebb6263033c0c76b6b8734509b10248/images/Screenshot%202025-01-17%20134911.png)
 
 ## Step 4: Review Database child module
 
