@@ -17,7 +17,7 @@ By the end of this project, you’ll be able to create and deploy a scalable and
 
 ## Terraform
 
-In my previous project “(https://github.com/Tatenda-Prince/Terraform-Deploying-Secure-Highly-Available-Fault-Tolerant-Cloud-Infrastructure-)”, I give a good explanation of Terraform, its benefits and some of Terraform’s most fundamental concepts.
+In my previous project `https://github.com/Tatenda-Prince/Terraform-Deploying-Secure-Highly-Available-Fault-Tolerant-Cloud-Infrastructure`, I give a good explanation of Terraform, its benefits and some of Terraform’s most fundamental concepts.
 
 I strongly recommend that you read the Introduction, Background and Main Terraform Commands sections of the article before today’s demonstration. This will help you quickly familiarize yourself with the necessary concepts and commands on Terraform so you can be well-prepared to make the most of the demonstration.
 
