@@ -319,7 +319,7 @@ Head to the Terraform Cloud sign in page to sign into your account. Input your s
 Next, we will create and name a new organization. Add your valid email address, then click Create organization.
 
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/e027b98a782e78ddb5410811e876ef304eda4968/images/Screenshot%202025-01-04%20124931.png)
 
 ## Create a workspace
 
