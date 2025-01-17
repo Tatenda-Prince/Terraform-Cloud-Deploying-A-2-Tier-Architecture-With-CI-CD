@@ -454,7 +454,9 @@ If you wish to take things a step further, you can modify the local repository, 
 
 ## Destroy infrastructure
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/64b3fece535ea42f683724ec9e37d2df5de7e2bc/images/Screenshot%202025-01-04%20194309.png)
+
+
 
 
 
