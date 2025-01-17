@@ -325,9 +325,13 @@ Next, we will create and name a new organization. Add your valid email address, 
 
 In the Projects and workspaces tab select Create a workspace, then slelect Version control workflow.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/62de571410d82c19a53d02d9e185c948428ad7f5/images/Screenshot%202025-01-04%20125112.png)
 
 ## Configure VCS settings to integrate with GitHub
+
+![image_alt]() 
+
+
 
 
 
