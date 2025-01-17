@@ -311,7 +311,7 @@ Terraform Cloud integrates with popular source control tools like GitHub, making
 
 Head to the Terraform Cloud sign in page to sign into your account. Input your sign in credentials, then click Sign in.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/3625fa9a56bd44e1bb30e16221500cf2c231782e/images/Screenshot%202025-01-17%20145310.png)
 
 
 ## Create an new organization
