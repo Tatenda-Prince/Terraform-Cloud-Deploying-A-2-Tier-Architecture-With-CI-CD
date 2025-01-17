@@ -355,7 +355,7 @@ To be able to have access to our AWS environment and ensure the security of our 
 
 Click on Go to workspace overview.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/4b8375d494229ab135021a22c76f0be8508b1290/images/Screenshot%202025-01-17%20141934.png)
 
 Select the Variables tab on the left panel, scroll down then click Add variable, as seen in the example below of using AWS access keys—
 
