@@ -329,7 +329,7 @@ In the Projects and workspaces tab select Create a workspace, then slelect Versi
 
 ## Configure VCS settings to integrate with GitHub
 
-![image_alt]() 
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/e98fb53b38c90a246daacc7dfba469588bc2e40a/images/Screenshot%202025-01-04%20125837.png) 
 
 
 
