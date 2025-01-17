@@ -392,7 +392,7 @@ Continue by scrolling down and clicking Confirm and Apply. Add a comment, then c
 
 Terraform Cloud should now start to run the Apply.
 
-![image_alt]() 
+![image_alt](0
 
 
 Apply Finished! The application process is now complete! Terraform Cloud has effectively deployed our two-tier architecture in the AWS environment. You should now be able to access and inspect all of the newly created resources.
