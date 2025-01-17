@@ -371,6 +371,43 @@ Once completed, you will have defined five variables in Terraform Cloud, as seen
 
 ![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/d01e7d275f2fe8560262c91d8711bc9506b813ae/images/Screenshot%202025-01-17%20142511.png)
 
+## Step 4: Execute the Terraform configuration code
+
+Let’s get to action! On the right hand side, click Actions, then Start new run to execute our Terraform code and deploy the infrastructure in our AWS environment.
+
+![image_alt]()
+
+In the next prompt, type your Reason for starting run, then click Start run.
+
+![image_alt]() 
+
+
+
+Upon successful completion of the plan, you will see a green bar accompanied by a green checkmark labeled as Plan Finished. This step is akin to running the terraform plan command, which displays a preview of the alterations that will be made to your AWS infrastructure based on the current Terraform configuration.
+
+Continue by scrolling down and clicking Confirm and Apply. Add a comment, then click Confirm Plan to deploy our AWS infrastructure.
+
+![image_alt]() 
+
+
+Terraform Cloud should now start to run the Apply.
+
+![image_alt]() 
+
+
+Apply Finished! The application process is now complete! Terraform Cloud has effectively deployed our two-tier architecture in the AWS environment. You should now be able to access and inspect all of the newly created resources.
+
+![image_alt]()
+
+Scroll down and take note of the Outputs value of the DNS of the created Application Load Balancer. Copy and save the ALB’s DNS, as it will be required to access the web page from the browser.
+
+![image_alt]()
+
+Now, let’s verify that our resources have been created by reviewing them in the Management Console.
+
+
+
+
 
 
 
