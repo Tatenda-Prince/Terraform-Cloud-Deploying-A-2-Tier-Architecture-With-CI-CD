@@ -369,7 +369,7 @@ Additionally, add the Terraform variables db_username and db_password which woul
 
 Once completed, you will have defined five variables in Terraform Cloud, as seen below.
 
-![image_alt]()
+![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/d01e7d275f2fe8560262c91d8711bc9506b813ae/images/Screenshot%202025-01-17%20142511.png)
 
 
 
