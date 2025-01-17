@@ -456,6 +456,12 @@ If you wish to take things a step further, you can modify the local repository, 
 
 ![image_alt](https://github.com/Tatenda-Prince/Terraform-Cloud-Deploying-A-2-Tier-Architecture-With-CI-CD/blob/64b3fece535ea42f683724ec9e37d2df5de7e2bc/images/Screenshot%202025-01-04%20194309.png)
 
+Select Queue destroy plan, enter your workspace name to confirm, then click Queue destroy plan.
+
+Scroll down, click Confirm and Apply, add a message, then click Confirm Plan to start the process of destroying of all previously provisions resources from Terraform Cloud.
+
+
+
 
 
 
