@@ -1,4 +1,4 @@
-#Terraform-Driven 2-Tier Architecture Deployment with CI/CD Pipeline Automation
+# Terraform-Driven 2-Tier Architecture Deployment with CI/CD Pipeline Automation
 
 "Terraform Cloud"
 
